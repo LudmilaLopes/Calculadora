@@ -1,73 +1,106 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 // estrutura inicial calculadora
-//função adição
+/*
+*faÃ§am as questÃµes de poscentagem e resolvam as questÃµes de seno e coseno.
+*/
+
+//funÃ§Ã£o adiÃ§Ã£o
 float somar(float num1, float num2){
     return num1 + num2;
 }
-// Função subtração
+//funÃ§Ã£o subtraÃ§Ã£o
 float subtrair(float num1, float num2){
     return num1 - num2;
 }
-// Função multiplicação
+//funÃ§Ã£o multiplicaÃ§Ã£o
 float multiplicar(float num1, float num2){
     return num1 * num2;
 }
-// Função Divisão
+//funÃ§Ã£o divisÃ£o
 float dividir(float num1, float num2){
     return num1 / num2;
 }
-// Função potencia
-float potenciar(float num1, float num2){
-    return pow(num1,num2);
+//funÃ§Ã£o potÃªncia
+float potencia(float num1, float num2){
+  	return pow(num1,  num2);
 }
-// Função porcentagem
+//funÃ§Ã£o porcentagem
 float porcentagem(float num1){
-    return (num1 / 100);
+  	return num1/100;
 }
-//função de escolha de operação
-void escolherCalculo(char operador, float num1, float num2){
+//funÃ§Ã£o de escolha de operaÃ§Ã£o
+float escolherCalculo(char operador, float num1, float num2){
     switch(operador){
         case '+':
-            printf("Valor da soma é %.2f",somar(num1,num2));
+            return somar(num1,num2);
         break;
-	    case '-':
-	            printf("Valor da subtração é %.2f",subtrair(num1,num2));
-	        break;
-	    case '*':
-	            printf("Valor da multiplicação é %.2f",multiplicar(num1,num2));
-	        break;
-	    case '/':
-	            printf("Valor da divisao é %.2f",dividir(num1,num2));
-	        break;
-	    case '^':
-	            printf("Valor da potencia é %.2f",potenciar(num1,num2));
-	        break;
-	    case '%':
-	            printf("Valor da porcentagem é %.2f",porcentagem(num1));
-	        break;
+        case '-':
+            return subtrair(num1,num2);
+        break;
+        case 'x':
+        case 'X':
+        case '*':
+            return multiplicar(num1,num2);
+        break;
+        case '/':
+        case ':':
+        case 'ÃƒÂ·':
+            return dividir(num1,num2);
+        break;
+        case '^':
+        case '~':
+            return potencia(num1,num2);
+        break;
+        case '%':
+            return porcentagem(num1);
+        break;
+    }
 }
+//funÃ§Ã£o de mostra resultado
+void mostrar_result(float resultado){
+    printf("| \t%.2f\t|\n", resultado);
+    printf("-----------------\n");
 }
-//função para mostrar calculadora na tela
-
-//função principal
-#include <iostream>
-#include <stdio.h>
-
-int main() {
-    float valor1, valor2;
+//funÃ§Ã£o para mostrar calculadora na tela
+void mostrar_tela(){
+    char resp = " ";
+    float resultado = 0;
+    do{
+    float num,num2;
     char operador;
-    //printf("%.0f", value);
-    printf("Por favor, digite um numero que deseja: ");
-    scanf("%f",&valor1);
+    mostrar_result(resultado);
+    printf("1Â° nÃºmero\n");
+    scanf("\n%f",&num);
+    system("cls");
+    mostrar_result(resultado);
+    printf("%.2f \t operador\n",num);
+    printf(">");
     fgetc(stdin);
-    printf("Qual o calculo deseja fazer: ");
     scanf("%c",&operador);
+    system("cls");
+    mostrar_result(resultado);
     if(operador != '%'){
-    scanf("%f",&valor2);
-	}			
-	escolherCalculo(operador, valor1,valor2);
-    
+    printf("%.2f \t %c \t 2Â°nÃºmero\n",num,operador);
+    scanf("%f",&num2);
+	}
+    system("cls");
+    resultado = escolherCalculo(operador,num,num2);
+    mostrar_result(resultado);
+    printf("%.2f \t %c \t %.2f \n",num,operador,num2);
+    printf("Deseja continuar? (s/n)\n");
+    scanf(" %c",&resp);
+    system("cls");
+    }while(resp != 'n' && resp != 'N');
+    printf("Obrigado por usar a calculadora =)\n");
+}
+
+//funÃ§Ã£o principal
+#include <stdio.h>
+#include <locale.h>
+int main() {
+	setlocale(LC_ALL, "Portuguese");
+    mostrar_tela();
     return 0;
 }
-
