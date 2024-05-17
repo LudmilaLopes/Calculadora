@@ -3,7 +3,7 @@
 #include <math.h>
 // estrutura inicial calculadora
 /*
-*façam as questões de poscentagem e resolvam as questões de seno e coseno.
+*resolver as questões de seno e coseno.
 */
 
 //função adição
