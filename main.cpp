@@ -102,9 +102,7 @@ void mostrar_tela(){
 
 //função principal
 #include <stdio.h>
-#include <locale.h>
 int main() {
-	setlocale(LC_ALL, "Portuguese");
     mostrar_tela();
     return 0;
 }
