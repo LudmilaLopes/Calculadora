@@ -25,7 +25,8 @@ float dividir(float num1, float num2){
 //função potência
 float potencia(float base, int exp){
     float resultado = 1;
-    for(int i = 0; i < exp; i++){
+    int i;
+    for(i = 0; i < exp; i++){
         resultado *= base;
     }
     return resultado;
@@ -50,7 +51,6 @@ float escolherCalculo(char operador, float num1, float num2){
         break;
         case '/':
         case ':':
-        case 'Ã·':
             return dividir(num1,num2);
         break;
         case '^':
@@ -69,13 +69,13 @@ void mostrar_result(float resultado){
 }
 //função para mostrar calculadora na tela
 void mostrar_tela(){
-    char resp = " ";
+    const char* resp = " ";
     float resultado = 0;
     do{
     float num,num2;
     char operador;
     mostrar_result(resultado);
-    printf("1° número\n");
+    printf("num\n");
     scanf("\n%f",&num);
     system("cls");
     mostrar_result(resultado);
@@ -86,7 +86,7 @@ void mostrar_tela(){
     system("cls");
     mostrar_result(resultado);
     if(operador != '%'){
-    printf("%.2f \t %c \t 2°número\n",num,operador);
+    printf("%.2f \t %c \t num\n",num,operador);
     scanf("%f",&num2);
 	}
     system("cls");
@@ -96,7 +96,7 @@ void mostrar_tela(){
     printf("Deseja continuar? (s/n)\n");
     scanf(" %c",&resp);
     system("cls");
-    }while(resp != 'n' && resp != 'N');
+    }while(resp != "n" && resp != "N");
     printf("Obrigado por usar a calculadora =)\n");
 }
 
