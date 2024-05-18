@@ -23,8 +23,12 @@ float dividir(float num1, float num2){
     return num1 / num2;
 }
 //função potência
-float potencia(float num1, float num2){
-  	return pow(num1,  num2);
+float potencia(float base, int exp){
+    float resultado = 1;
+    for(int i = 0; i < exp; i++){
+        resultado *= base;
+    }
+    return resultado;
 }
 //função porcentagem
 float porcentagem(float num1){
