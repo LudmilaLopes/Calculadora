@@ -2,23 +2,23 @@
 #include <stdlib.h>
 // estrutura inicial calculadora
 
-//fun��o adi��o
+//função adição
 float somar(float num1, float num2){
     return num1 + num2;
 }
-//fun��o subtra��o
+//função subtração
 float subtrair(float num1, float num2){
     return num1 - num2;
 }
-//fun��o multiplica��o
+//função multiplicão
 float multiplicar(float num1, float num2){
     return num1 * num2;
 }
-//fun��o divis�o
+//função divis�o
 float dividir(float num1, float num2){
     return num1 / num2;
 }
-//fun��o pot�ncia
+//função pot�ncia
 float potencia(float base, int exp){
     float resultado = 1;
     int i;
@@ -27,12 +27,12 @@ float potencia(float base, int exp){
     }
     return resultado;
 }
-//fun��o porcentagem
+//função porcentagem
 float porcentagem(float num1){
   	return num1/100;
 }
 
-// Fun��o para calcular o seno usando a s�rie de Taylor
+// Função para calcular o seno usando a s�rie de Taylor
 float seno(float x) {
 	float PI = 3.14;
     while (x < 0) {
@@ -52,7 +52,7 @@ float seno(float x) {
     return soma;
 }
 
-// Fun��o para calcular o cosseno usando a s�rie de Taylor
+// Função para calcular o cosseno usando a série de Taylor
 float cosseno(float x) {
 	float PI = 3.14;
     while (x < 0) {
@@ -72,7 +72,7 @@ float cosseno(float x) {
     return soma;
 }
 
-//fun��o de escolha de opera��o
+//função de escolha de operação
 float escolherCalculo(char operador, float num1, float num2){
     switch(operador){
         case '+':
@@ -106,12 +106,12 @@ float escolherCalculo(char operador, float num1, float num2){
     }
 }
 
-//fun��o de mostrar resultado
+//função de mostrar resultado
 void mostrar_result(float resultado){
     printf("| \t%.2f\t|\n", resultado);
     printf("-----------------\n");
 }
-//fun��o para mostrar calculadora na tela
+//função para mostrar calculadora na tela
 void mostrar_tela(){
     char resp = ' ';
     float resultado = 0;
@@ -174,7 +174,7 @@ void mostrar_tela(){
     printf("Obrigado por usar a calculadora =)\n");
 }
 
-//fun��o principal
+//função principal
 #include <stdio.h>
 int main() {
     mostrar_tela();
