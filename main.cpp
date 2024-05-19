@@ -2,23 +2,23 @@
 #include <stdlib.h>
 // estrutura inicial calculadora
 
-//função adição
+//fun��o adi��o
 float somar(float num1, float num2){
     return num1 + num2;
 }
-//função subtração
+//fun��o subtra��o
 float subtrair(float num1, float num2){
     return num1 - num2;
 }
-//função multiplicação
+//fun��o multiplica��o
 float multiplicar(float num1, float num2){
     return num1 * num2;
 }
-//função divisão
+//fun��o divis�o
 float dividir(float num1, float num2){
     return num1 / num2;
 }
-//função potência
+//fun��o pot�ncia
 float potencia(float base, int exp){
     float resultado = 1;
     int i;
@@ -27,12 +27,12 @@ float potencia(float base, int exp){
     }
     return resultado;
 }
-//função porcentagem
+//fun��o porcentagem
 float porcentagem(float num1){
   	return num1/100;
 }
 
-// Função para calcular o seno usando a série de Taylor
+// Fun��o para calcular o seno usando a s�rie de Taylor
 float seno(float x) {
 	float PI = 3.14;
     while (x < 0) {
@@ -52,7 +52,7 @@ float seno(float x) {
     return soma;
 }
 
-// Função para calcular o cosseno usando a série de Taylor
+// Fun��o para calcular o cosseno usando a s�rie de Taylor
 float cosseno(float x) {
 	float PI = 3.14;
     while (x < 0) {
@@ -72,7 +72,7 @@ float cosseno(float x) {
     return soma;
 }
 
-//função de escolha de operação
+//fun��o de escolha de opera��o
 float escolherCalculo(char operador, float num1, float num2){
     switch(operador){
         case '+':
@@ -100,51 +100,81 @@ float escolherCalculo(char operador, float num1, float num2){
         case 's':
         	return seno(num1);
         break;
-         case 'c':
+        case 'c':
             return cosseno(num1);
         break;
     }
 }
-//função de mostra resultado
+
+//fun��o de mostrar resultado
 void mostrar_result(float resultado){
     printf("| \t%.2f\t|\n", resultado);
     printf("-----------------\n");
 }
-//função para mostrar calculadora na tela
+//fun��o para mostrar calculadora na tela
 void mostrar_tela(){
-    const char* resp = " ";
+    char resp = ' ';
     float resultado = 0;
-    do{
     float num,num2;
     char operador;
     mostrar_result(resultado);
     printf("numero\n");
     scanf("\n%f",&num);
-    system("cls");
+    //system("cls");// limpar tala no windows
+    system("clear");
     mostrar_result(resultado);
     printf("%.2f \t operador/seno(s)/cosseno(c) ",num);
     printf(">");
     fgetc(stdin);
     scanf("%c",&operador);
-    system("cls");
+    //system("cls");// limpar tala no windows
+    system("clear");
     mostrar_result(resultado);
     if((operador != '%') && (operador != 's') && (operador  != 'c')){
     printf("%.2f \t %c \t num\n",num,operador);
     scanf("%f",&num2);
 	}
-    system("cls");
+    //system("cls");// limpar tala no windows
+    system("clear");
     resultado = escolherCalculo(operador,num,num2);
     mostrar_result(resultado);
     printf("%.2f \t %c \t %.2f \n",num,operador,num2);
     printf("Deseja continuar o calculo? (s/n)\n");
     scanf(" %c",&resp);
-    system("cls");
-    //
-    }while(resp != "n" && resp != "N");
+    //system("cls");// limpar tala no windows
+    system("clear");
+    //calcular expresçoes
+    while(resp != 'n' && resp != 'N'){
+    mostrar_result(resultado);
+    num = resultado;
+    printf("%.2f \t operador/seno(s)/cosseno(c) ",num);
+    printf(">");
+    fgetc(stdin);
+    scanf("%c",&operador);
+    //system("cls");// limpar tala no windows
+    system("clear");
+    mostrar_result(resultado);
+    if((operador != '%') && (operador != 's') && (operador  != 'c')){
+    printf("%.2f \t %c \t num\n",num,operador);
+    scanf("%f",&num2);
+	}
+    //system("cls");// limpar tala no windows
+    system("clear");
+    resultado = escolherCalculo(operador,num, num2);
+    mostrar_result(resultado);
+    printf("%.2f \t %c \t %.2f \n",num,operador,num2);
+    //system("cls");// limpar tala no windows
+    system("clear");
+    mostrar_result(resultado);
+    printf("Deseja continuar o calculo? (s/n)\n");
+    scanf(" %c",&resp);
+    //system("cls");// limpar tala no windows
+    system("clear");
+    }
     printf("Obrigado por usar a calculadora =)\n");
 }
 
-//função principal
+//fun��o principal
 #include <stdio.h>
 int main() {
     mostrar_tela();
