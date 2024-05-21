@@ -12,17 +12,17 @@ float subtrair(float num1, float num2)
 {
     return num1 - num2;
 }
-// função multiplicão
+// função multiplicacão
 float multiplicar(float num1, float num2)
 {
     return num1 * num2;
 }
-// função divis�o
+// função divisão
 float dividir(float num1, float num2)
 {
     return num1 / num2;
 }
-// função pot�ncia
+// função potência
 float potencia(float base, int exp)
 {
     float resultado = 1;
@@ -39,7 +39,7 @@ float porcentagem(float num1)
     return num1 / 100;
 }
 
-// Função para calcular o seno usando a s�rie de Taylor
+// função para calcular o seno usando a série de Taylor
 float seno(float x)
 {
     float PI = 3.14;
@@ -63,7 +63,7 @@ float seno(float x)
     return soma;
 }
 
-// Função para calcular o cosseno usando a série de Taylor
+// função para calcular o cosseno usando a série de Taylor
 float cosseno(float x)
 {
     float PI = 3.14;
@@ -139,32 +139,43 @@ void mostrar_tela()
     mostrar_result(resultado);
     printf("numero\n");
     scanf("\n%f", &num);
-    // system("cls");// limpar tala no windows
-    system("clear");
+    system("cls");// limpar tela no windows
+     // system("clear");
     mostrar_result(resultado);
     printf("%.2f \t operador/seno(s)/cosseno(c) ", num);
     printf(">");
     fgetc(stdin);
     scanf("%c", &operador);
-    // system("cls");// limpar tala no windows
-    system("clear");
+    system("cls");// limpar tala no windows
+     // system("clear");
     mostrar_result(resultado);
     if ((operador != '%') && (operador != 's') && (operador != 'c'))
     {
         printf("%.2f \t %c \t num\n", num, operador);
         scanf("%f", &num2);
     }
-    // system("cls");// limpar tala no windows
-    system("clear");
+    system("cls");// limpar tela no windows
+     // system("clear");
     resultado = escolherCalculo(operador, num, num2);
     mostrar_result(resultado);
     printf("%.2f \t %c \t %.2f \n", num, operador, num2);
-    printf("Deseja continuar o calculo? (s/n)\n");
-    scanf(" %c", &resp);
-    // system("cls");// limpar tala no windows
-    system("clear");
+    printf("Deseja continuar o calculo ou desligar? (s/n)\n");
+    scanf(" %c", &resp); 
+    printf("Deseja dar prosseguimento a expressão ou deseja começar novamente? \n(comecar novamente (C)/ prosseguir(P) \n");
+	scanf(" %c", &continuar_Orzerar);
+    if(continuar_Orzerar == 'c' || continuar_Orzerar == 'C'){
+    	system("cls");// limpar tela no windows
+    	resultado = 0;
+        mostrar_result(resultado);
+        printf("numero\n");
+        scanf("\n%f", &num);
+        resultado = num;
+	}
+   
+    system("cls");// limpar tela no windows
+     // system("clear");
 
-    // calcular expresçoes
+    // calcular expressões
     while (resp != 'n' && resp != 'N')
     {
         mostrar_result(resultado);
@@ -173,8 +184,8 @@ void mostrar_tela()
         printf(">");
         fgetc(stdin);
         scanf("%c", &operador);
-        // system("cls");// limpar tala no windows
-        system("clear");
+        system("cls");// limpar tela no windows
+         // system("clear");
         mostrar_result(resultado);
 
         if ((operador != '%') && (operador != 's') && (operador != 'c'))
@@ -183,13 +194,13 @@ void mostrar_tela()
             scanf("%f", &num2);
         }
 
-        // system("cls");// limpar tala no windows
-        system("clear");
+        system("cls");// limpar tela no windows
+         // system("clear");
         resultado = escolherCalculo(operador, num, num2);
         mostrar_result(resultado);
         printf("%.2f \t %c \t %.2f \n", num, operador, num2);
-        // system("cls");// limpar tala no windows
-        system("clear");
+        system("cls");// limpar tela no windows
+         // system("clear");
         mostrar_result(resultado);
         printf("Deseja continuar o calculo? (s/n)\n");
         scanf(" %c", &resp);
@@ -200,15 +211,16 @@ void mostrar_tela()
             scanf(" %c", &continuar_Orzerar);
             if (continuar_Orzerar == 'c' || continuar_Orzerar == 'C')
             {
-                 // system("cls");// limpar tala no windows
-                system("clear");
+                system("cls");// limpar tela no windows
+                 // system("clear");
                 resultado = 0;
                 mostrar_result(resultado);
                 printf("numero\n");
                 scanf("\n%f", &num);
+                resultado = num;
             }
-            // system("cls");// limpar tala no windows
-            system("clear");
+            system("cls");// limpar tela no windows
+             // system("clear");
         }
     }
         printf("Obrigado por usar a calculadora =)\n");
